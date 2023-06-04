@@ -8,7 +8,6 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ,
       bottomNavigationBar: BottomNavBar(),
       body: Column(
         children: [
