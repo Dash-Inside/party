@@ -29,7 +29,7 @@ class _Content extends StatelessWidget {
       child: ListView(children: [
         Row(
           children: [
-            CircleAvatar(backgroundImage: AssetImage('assetName')),
+            CircleAvatar(),
             Column(
               children: [
                 Text('Алексей Мазелюк'),
@@ -41,21 +41,15 @@ class _Content extends StatelessWidget {
         Divider(),
         Row(
           children: [
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Text('Учавствовать в подборе'),
-                    Spacer(),
-                  ],
-                ),
-                Text(
-                    'Ваш аккаунт будет отображаться в системе подбора игроков'),
-                Switch(value: false, onChanged: null),
-              ],
-            )
+            Text('Учавствовать в подборе'),
+            Spacer(),
+            Switch(
+              value: false,
+              onChanged: (_) => !_,
+            ),
           ],
         ),
+        Text('Ваш аккаунт будет отображаться в системе подбора игроков'),
         Divider(),
         Row(
           children: [

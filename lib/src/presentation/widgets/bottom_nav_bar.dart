@@ -9,12 +9,16 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(items: [
       BottomNavigationBarItem(
-        label: '',
-        icon: Icon(Icons.abc),
+        label: 'Поиск',
+        icon: Icon(Icons.search),
       ),
       BottomNavigationBarItem(
-        label: '1',
-        icon: Icon(Icons.abc),
+        label: 'История',
+        icon: Icon(Icons.history),
+      ),
+      BottomNavigationBarItem(
+        label: 'Еще',
+        icon: Icon(Icons.menu_rounded),
       ),
     ]);
   }
