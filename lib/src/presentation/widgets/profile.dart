@@ -3,10 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Profile extends StatelessWidget {
   final EdgeInsets padding;
-
+  final String nickname;
+  final String stuf;
   const Profile({
     super.key,
     required this.padding,
+    required this.nickname,
+    required this.stuf,
   });
 
   @override
@@ -27,7 +30,7 @@ class Profile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Алексей Мазелюк',
+                nickname,
                 style: GoogleFonts.roboto(
                   fontWeight: FontWeight.w400,
                   fontSize: 16,
@@ -35,7 +38,7 @@ class Profile extends StatelessWidget {
                 ),
               ),
               Text(
-                'Санкт-Петербург',
+                stuf,
                 style: GoogleFonts.roboto(
                   fontWeight: FontWeight.w400,
                   fontSize: 13,

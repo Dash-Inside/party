@@ -19,7 +19,31 @@ class MainApp extends StatelessWidget {
         fontFamily: GoogleFonts.roboto().fontFamily,
       ),
       // home: ProfilePage(),
-      home: EtcPage(),
+      home: EtcPage(
+        userInformation: [
+          'Алексей',
+          'Алексей',
+          'Дмитрий',
+          'Алексей',
+          'Алексей',
+          'Дмитрий',
+          'Алексей',
+          'Алексей',
+          'Дмитрий',
+          'Алексей',
+          'Алексей',
+          'Дмитрий',
+          'Алексей',
+          'Алексей',
+          'Дмитрий',
+          'Алексей',
+          'Алексей',
+          'Дмитрий',
+          'Алексей',
+          'Алексей',
+          'Дмитрий',
+        ],
+      ),
     );
   }
 }

@@ -20,6 +20,7 @@ class SearchPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           PanelHeader(
+            title: 'Поиск',
             icon: Icons.flag_outlined,
           ),
           VkDivider(),
@@ -49,6 +50,8 @@ class _Content extends StatelessWidget {
           children: [
             Profile(
               padding: EdgeInsets.all(16),
+              stuf: 'Москва',
+              nickname: 'Алексей',
             ),
             SizedBox(
               child: Text(userInformation),
@@ -83,7 +86,7 @@ class CustomButton extends StatelessWidget {
               vertical: 4,
             ),
             child: Center(
-              child: Text('Написать'),
+              child: Text('Написать специальное сообщение'),
             ),
           ),
         ),

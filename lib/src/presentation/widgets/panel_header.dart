@@ -4,9 +4,11 @@ import 'package:party/src/presentation/widgets/double_button.dart';
 
 class PanelHeader extends StatelessWidget {
   final IconData? icon;
+  final String title;
   const PanelHeader({
     super.key,
     this.icon,
+    required this.title,
   });
 
   @override
@@ -22,7 +24,7 @@ class PanelHeader extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
-              'Поиск',
+              title,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.roboto(
                   fontWeight: FontWeight.w300,

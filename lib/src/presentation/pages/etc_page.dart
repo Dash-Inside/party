@@ -6,17 +6,26 @@ import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/vk_divider.dart';
 
 class EtcPage extends StatelessWidget {
-  const EtcPage({super.key});
+  final List<String> userInformation;
+  const EtcPage({
+    super.key,
+    required this.userInformation,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavBar(),
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          PanelHeader(),
+          PanelHeader(
+            title: 'Тиммейты',
+          ),
           VkDivider(),
-          _Content(),
+          _Content(
+            userInformation: userInformation,
+          ),
         ],
       ),
     );
@@ -24,112 +33,137 @@ class EtcPage extends StatelessWidget {
 }
 
 class _Content extends StatelessWidget {
-  const _Content();
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(children: [
-        Profile(
-          padding: EdgeInsets.all(16),
-        ),
-        VkDivider(),
-        Settings(),
-        VkDivider(),
-        _SettingsButton(
-          icon: Icons.help_outline_outlined,
-          text: 'Помощь',
-        ),
-        _SettingsButton(
-          icon: Icons.info_outline,
-          text: 'О приложении',
-        ),
-      ]),
-    );
-  }
-}
-
-class _SettingsButton extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  const _SettingsButton({
-    required this.icon,
-    required this.text,
+  final List<String> userInformation;
+  const _Content({
+    required this.userInformation,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            color: Color(0xFF2688EB),
-            size: 24,
-          ),
-          SizedBox(
-            width: 18,
-          ),
-          Expanded(
-            child: Text(
-              text,
-              overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.roboto(
-                fontWeight: FontWeight.w400,
-                fontSize: 16,
-                letterSpacing: 0.1,
-              ),
-            ),
-          ),
-        ],
+    return Expanded(
+      child: ListView.builder(
+        itemCount: userInformation.length,
+        itemBuilder: (context, index) {
+          return TeammateCard(userInformation: userInformation[index]);
+          // return TeammateListElement(
+          //   nickname: userInformation[index],
+          //   info: userInformation[index],
+          // );
+        },
       ),
     );
   }
 }
 
-class Settings extends StatelessWidget {
-  const Settings({
+class TeammateCard extends StatelessWidget {
+  const TeammateCard({
     super.key,
+    required this.userInformation,
+  });
+
+  final String userInformation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Card(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Profile(
+              nickname: userInformation,
+              padding: EdgeInsets.all(16),
+              stuf: userInformation,
+            ),
+            SizedBox(
+              child: Text(userInformation),
+            ),
+            Spacer(),
+            CustomButton(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 270),
+      child: GestureDetector(
+        onTap: () {},
+        child: Container(
+          width: double.infinity,
+          margin: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: Color(0xFF2D81E0),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 4,
+            ),
+            child: Center(
+              child: Text('Написать специальное сообщение'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TeammateListElement extends StatelessWidget {
+  final String nickname;
+  final String info;
+  const TeammateListElement({
+    super.key,
+    required this.nickname,
+    required this.info,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      padding: EdgeInsets.all(8),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
+          CircleAvatar(
+            radius: 36,
+            backgroundColor: Colors.amber,
+          ),
+          SizedBox(
+            width: 12,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Text(
-                  'Учавствовать в подборе',
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    letterSpacing: 0.1,
-                  ),
+              Text(
+                nickname,
+                style: GoogleFonts.roboto(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16,
+                  letterSpacing: 0.1,
                 ),
               ),
-              Switch(
-                value: false,
-                onChanged: (_) => !_,
+              Text(
+                info,
+                style: GoogleFonts.roboto(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 13,
+                  letterSpacing: 0.2,
+                  color: Color(0xFF818C99),
+                ),
               ),
             ],
           ),
-          Text(
-            'Ваш аккаунт будет отображаться в системе подбора игроков',
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.roboto(
-              fontWeight: FontWeight.w400,
-              fontSize: 13,
-              letterSpacing: 0.2,
-              color: Color(0xFF818C99),
-            ),
-          ),
+          Spacer(),
+          Icon(Icons.message),
         ],
       ),
     );

@@ -13,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
         icon: Icon(Icons.search),
       ),
       BottomNavigationBarItem(
-        label: 'История',
+        label: 'Тиммейты',
         icon: Icon(Icons.history),
       ),
       BottomNavigationBarItem(
