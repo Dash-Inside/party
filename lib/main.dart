@@ -18,7 +18,10 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: GoogleFonts.roboto().fontFamily,
       ),
-      home: InitPage(),
+      // home: ProfilePage(),
+      home: InitPage(
+        userInformation: '123',
+      ),
     );
   }
 }
