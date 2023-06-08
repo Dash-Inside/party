@@ -5,8 +5,8 @@ import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/vk_divider.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class EtcPage extends StatelessWidget {
+  const EtcPage({super.key});
 
   @override
   Widget build(BuildContext context) {

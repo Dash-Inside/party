@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:party/src/presentation/pages/init_page.dart';
+import 'package:party/src/presentation/pages/search_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
         fontFamily: GoogleFonts.roboto().fontFamily,
       ),
       // home: ProfilePage(),
-      home: InitPage(
+      home: SearchPage(
         userInformation: '123',
       ),
     );

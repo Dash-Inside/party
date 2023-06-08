@@ -5,9 +5,9 @@ import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/vk_divider.dart';
 
-class InitPage extends StatelessWidget {
+class SearchPage extends StatelessWidget {
   final String userInformation;
-  const InitPage({
+  const SearchPage({
     super.key,
     required this.userInformation,
   });
