@@ -43,11 +43,7 @@ class _Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Color.fromARGB(255, 165, 18, 121),
-        ),
+      child: Card(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -72,7 +68,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 340),
+      constraints: BoxConstraints(maxWidth: 270),
       child: GestureDetector(
         onTap: () {},
         child: Container(
