@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class VkDivider extends StatelessWidget {
+class CustomDivider extends StatelessWidget {
   final EdgeInsets padding;
-  const VkDivider({
+  const CustomDivider({
     super.key,
     required this.padding,
   });

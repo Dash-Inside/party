@@ -4,7 +4,7 @@ import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
 import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
-import 'package:party/src/presentation/widgets/vk_divider.dart';
+import 'package:party/src/presentation/widgets/custom_divider.dart';
 
 class SearchPage extends StatelessWidget {
   final String userInformation;
@@ -24,7 +24,7 @@ class SearchPage extends StatelessWidget {
             title: 'Поиск',
             icon: Icons.flag_outlined,
           ),
-          VkDivider(
+          CustomDivider(
             padding: EdgeInsets.all(8),
           ),
           Spacer(),

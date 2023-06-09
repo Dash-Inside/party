@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
 import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
-import 'package:party/src/presentation/widgets/vk_divider.dart';
+import 'package:party/src/presentation/widgets/custom_divider.dart';
 
 class EtcPage extends StatelessWidget {
   const EtcPage({super.key});
@@ -17,7 +17,7 @@ class EtcPage extends StatelessWidget {
           PanelHeader(
             title: 'Ещё',
           ),
-          VkDivider(
+          CustomDivider(
             padding: EdgeInsets.all(8),
           ),
           _Content(),
@@ -39,11 +39,11 @@ class _Content extends StatelessWidget {
           nickname: 'Алексей',
           stuf: 'Питер',
         ),
-        VkDivider(
+        CustomDivider(
           padding: EdgeInsets.all(16),
         ),
         Settings(),
-        VkDivider(
+        CustomDivider(
           padding: EdgeInsets.all(16),
         ),
         _SettingsButton(

@@ -4,7 +4,7 @@ import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
 import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
-import 'package:party/src/presentation/widgets/vk_divider.dart';
+import 'package:party/src/presentation/widgets/custom_divider.dart';
 
 class TeammatePage extends StatelessWidget {
   final List<String> userInformation;
@@ -23,7 +23,7 @@ class TeammatePage extends StatelessWidget {
           PanelHeader(
             title: 'Тиммейты',
           ),
-          VkDivider(
+          CustomDivider(
             padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
           ),
           _Content(
@@ -62,7 +62,7 @@ class TeammateListElement extends StatelessWidget {
     super.key,
     required this.nickname,
     required this.info,
-    this.special = false,
+    this.special = true,
   });
 
   @override
@@ -71,39 +71,42 @@ class TeammateListElement extends StatelessWidget {
       builder: (context) {
         if (special)
           return Padding(
-            padding: EdgeInsets.fromLTRB(
-              8,
-              8,
-              8,
-              0,
-            ),
+            padding: EdgeInsets.all(8),
             child: Card(
               child: Row(
                 children: [
-                  CircleAvatar(),
-                  SizedBox(
-                    width: 12,
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: CircleAvatar(
+                      radius: 36,
+                    ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(nickname),
-                      Text(info),
-                      Row(
-                        children: [
-                          _CustomButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 4, horizontal: 8),
-                            title: 'Посмотреть',
-                            color: Color(0xFF2D81E0),
-                          ),
-                          _CustomButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 4, horizontal: 8),
-                            title: 'Скрыть',
-                            color: Colors.grey,
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8),
+                        child: Text(nickname),
+                      ),
+                      Text(
+                          'Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8,
+                        ),
+                        child: Row(
+                          children: [
+                            _CustomButton(
+                              title: 'Посмотреть',
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            _CustomButton(
+                              title: 'Скрыть',
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -113,12 +116,7 @@ class TeammateListElement extends StatelessWidget {
           );
         else
           return Padding(
-            padding: EdgeInsets.fromLTRB(
-              8,
-              8,
-              8,
-              0,
-            ),
+            padding: EdgeInsets.all(8),
             child: Card(
               child: Row(
                 children: [
@@ -134,28 +132,22 @@ class TeammateListElement extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Text(nickname),
-                          Chip(
-                            label: Text('Special message'),
-                          ),
-                        ],
+                      Text(nickname),
+                      SizedBox(
+                        height: 18,
                       ),
-                      Text(info),
                       Row(
                         children: [
                           _CustomButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 4, horizontal: 8),
-                            title: 'Добавить',
-                            color: Color(0xFF2D81E0),
+                            title: 'Написать',
+                          ),
+                          SizedBox(
+                            width: 8,
                           ),
                           _CustomButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 4, horizontal: 8),
                             title: 'Скрыть',
-                            color: Colors.grey,
+                            backColor: Color(0xfff5f5f5),
+                            textColor: Color(0xdd2D81E0),
                           ),
                         ],
                       ),
@@ -172,26 +164,27 @@ class TeammateListElement extends StatelessWidget {
 
 class _CustomButton extends StatelessWidget {
   final String title;
-  final Color color;
-  final EdgeInsets padding;
+  final Color backColor;
+  final Color textColor;
   const _CustomButton({
     required this.title,
-    required this.color,
-    required this.padding,
+    this.backColor = const Color(0xFF2D81E0),
+    this.textColor = Colors.white,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(8),
+    return ElevatedButton(
+      onPressed: () {},
+      child: Text(
+        title,
+        style: TextStyle(
+          color: textColor,
         ),
-        child: Padding(
-          padding: padding,
-          child: Text(title),
-        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: backColor,
       ),
     );
   }
