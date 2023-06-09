@@ -1,33 +1,30 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
-import 'package:party/src/presentation/widgets/panel_header.dart';
-import 'package:party/src/presentation/widgets/profile.dart';
-import 'package:party/src/presentation/widgets/custom_divider.dart';
+part of '../app_page.dart';
 
 class EtcTab extends StatelessWidget {
   const EtcTab({
     super.key,
   });
 
-  static const route = '/etc';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
-      body: Column(
-        children: [
-          PanelHeader(
-            title: 'Ещё',
-          ),
-          CustomDivider(
-            padding: EdgeInsets.all(8),
-          ),
-          _Content(),
-        ],
-      ),
+      body: Placeholder(),
     );
+
+    // return Scaffold(
+    //   bottomNavigationBar: BottomNavBar(),
+    //   body: Column(
+    //     children: [
+    //       PanelHeader(
+    //         title: 'Ещё',
+    //       ),
+    //       CustomDivider(
+    //         padding: EdgeInsets.all(8),
+    //       ),
+    //       _Content(),
+    //     ],
+    //   ),
+    // );
   }
 }
 
@@ -89,7 +86,7 @@ class _SettingsButton extends StatelessWidget {
             child: Text(
               text,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.roboto(
+              style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
                 letterSpacing: 0.1,
@@ -120,7 +117,7 @@ class Settings extends StatelessWidget {
                 child: Text(
                   'Учавствовать в подборе',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.roboto(
+                  style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
                     letterSpacing: 0.1,
@@ -137,7 +134,7 @@ class Settings extends StatelessWidget {
             'Ваш аккаунт будет отображаться в системе подбора игроков',
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.roboto(
+            style: TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 13,
               letterSpacing: 0.2,

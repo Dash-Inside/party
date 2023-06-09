@@ -1,42 +1,41 @@
-import 'package:flutter/material.dart';
-import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
-import 'package:party/src/presentation/widgets/panel_header.dart';
-import 'package:party/src/presentation/widgets/custom_divider.dart';
+part of '../app_page.dart';
 
 class TeammatesTab extends StatelessWidget {
   TeammatesTab({
     super.key,
   });
 
-  static const route = '/teammates';
-
-  final List<String> userInformation = [];
+  final List<String> userInformation = ['1', '2', '3'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          PanelHeader(
-            title: 'Тиммейты',
-          ),
-          CustomDivider(
-            padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-          ),
-          _Content(
-            userInformation: userInformation,
-          ),
-        ],
-      ),
+      body: Placeholder(),
     );
+
+    // return Scaffold(
+    //   bottomNavigationBar: const BottomNavBar(),
+    //   body: Column(
+    //     mainAxisSize: MainAxisSize.min,
+    //     children: [
+    //       const PanelHeader(
+    //         title: 'Тиммейты',
+    //       ),
+    //       const CustomDivider(
+    //         padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+    //       ),
+    //       _Content2(
+    //         userInformation: userInformation,
+    //       ),
+    //     ],
+    //   ),
+    // );
   }
 }
 
-class _Content extends StatelessWidget {
+class _Content2 extends StatelessWidget {
   final List<String> userInformation;
-  const _Content({
+  const _Content2({
     required this.userInformation,
   });
 
@@ -44,6 +43,7 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        itemCount: userInformation.length,
         itemBuilder: (_, i) => TeammateListElement(
           nickname: userInformation[i],
           info: userInformation[i],
@@ -70,12 +70,12 @@ class TeammateListElement extends StatelessWidget {
       builder: (context) {
         if (special)
           return Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Card(
               child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: CircleAvatar(
                       radius: 36,
                     ),
@@ -87,9 +87,9 @@ class TeammateListElement extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 8),
                         child: Text(nickname),
                       ),
-                      Text('Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                      const Text('Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(
                           vertical: 8,
                         ),
                         child: Row(
@@ -114,27 +114,27 @@ class TeammateListElement extends StatelessWidget {
           );
         else
           return Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Card(
               child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: CircleAvatar(
                       radius: 36,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 12,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(nickname),
-                      SizedBox(
+                      const SizedBox(
                         height: 18,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           _CustomButton(
                             title: 'Написать',
@@ -174,15 +174,15 @@ class _CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: backColor,
+      ),
       child: Text(
         title,
         style: TextStyle(
           color: textColor,
         ),
-      ),
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        backgroundColor: backColor,
       ),
     );
   }

@@ -26,10 +26,7 @@ class PanelHeader extends StatelessWidget {
             child: Text(
               title,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.roboto(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 23,
-                  fontStyle: FontStyle.italic),
+              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 23, fontStyle: FontStyle.italic),
             ),
           ),
         ),

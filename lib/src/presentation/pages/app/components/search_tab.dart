@@ -1,47 +1,44 @@
-import 'package:flutter/material.dart';
-import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
-import 'package:party/src/presentation/widgets/custom_button.dart';
-import 'package:party/src/presentation/widgets/panel_header.dart';
-import 'package:party/src/presentation/widgets/profile.dart';
-import 'package:party/src/presentation/widgets/custom_divider.dart';
+part of '../app_page.dart';
 
 class SearchTab extends StatelessWidget {
   const SearchTab({
     super.key,
   });
 
-  static const route = '/search';
-
   final String userInformation = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          PanelHeader(
-            title: 'Поиск',
-            icon: Icons.flag_outlined,
-          ),
-          CustomDivider(
-            padding: EdgeInsets.all(8),
-          ),
-          Spacer(),
-          _Content(
-            userInformation: 'Информация о пользователе',
-          ),
-          Spacer(),
-        ],
-      ),
+      body: SizedBox.expand(child: Placeholder()),
     );
+
+    // return Scaffold(
+    //   bottomNavigationBar: BottomNavBar(),
+    //   body: Column(
+    //     mainAxisSize: MainAxisSize.min,
+    //     children: [
+    //       PanelHeader(
+    //         title: 'Поиск',
+    //         icon: Icons.flag_outlined,
+    //       ),
+    //       CustomDivider(
+    //         padding: EdgeInsets.all(8),
+    //       ),
+    //       Spacer(),
+    //       _Content1(
+    //         userInformation: 'Информация о пользователе',
+    //       ),
+    //       Spacer(),
+    //     ],
+    //   ),
+    // );
   }
 }
 
-class _Content extends StatelessWidget {
+class _Content1 extends StatelessWidget {
   final String userInformation;
-  const _Content({
+  const _Content1({
     required this.userInformation,
   });
 
