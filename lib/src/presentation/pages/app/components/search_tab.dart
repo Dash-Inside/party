@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
 import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/custom_divider.dart';
 
-class SearchPage extends StatelessWidget {
-  final String userInformation;
-  const SearchPage({
+class SearchTab extends StatelessWidget {
+  const SearchTab({
     super.key,
-    required this.userInformation,
   });
+
+  static const route = '/search';
+
+  final String userInformation = "";
 
   @override
   Widget build(BuildContext context) {

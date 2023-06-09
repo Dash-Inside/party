@@ -5,8 +5,12 @@ import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/custom_divider.dart';
 
-class EtcPage extends StatelessWidget {
-  const EtcPage({super.key});
+class EtcTab extends StatelessWidget {
+  const EtcTab({
+    super.key,
+  });
+
+  static const route = '/etc';
 
   @override
   Widget build(BuildContext context) {

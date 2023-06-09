@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
-import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/panel_header.dart';
-import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/custom_divider.dart';
 
-class TeammatePage extends StatelessWidget {
-  final List<String> userInformation;
-  const TeammatePage({
+class TeammatesTab extends StatelessWidget {
+  TeammatesTab({
     super.key,
-    required this.userInformation,
   });
+
+  static const route = '/teammates';
+
+  final List<String> userInformation = [];
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +87,7 @@ class TeammateListElement extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 8),
                         child: Text(nickname),
                       ),
-                      Text(
-                          'Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
+                      Text('Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 8,
