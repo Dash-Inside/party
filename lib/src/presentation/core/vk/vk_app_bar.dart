@@ -12,7 +12,7 @@ class VkAppBar extends AppBar {
   }) : super(
           title: Text(
             title,
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           centerTitle: true,
           backgroundColor: Theme.of(context).colorScheme.background,
