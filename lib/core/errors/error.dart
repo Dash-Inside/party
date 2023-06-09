@@ -1,3 +1,1 @@
-class ServerError extends Error {
-  ServerError();
-}
+class ServerError extends Error {}
