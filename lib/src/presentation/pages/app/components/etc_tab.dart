@@ -8,23 +8,18 @@ class EtcTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Placeholder(),
+      body: Column(
+        children: [
+          PanelHeader(
+            title: 'Ещё',
+          ),
+          CustomDivider(
+            padding: EdgeInsets.all(8),
+          ),
+          _Content(),
+        ],
+      ),
     );
-
-    // return Scaffold(
-    //   bottomNavigationBar: BottomNavBar(),
-    //   body: Column(
-    //     children: [
-    //       PanelHeader(
-    //         title: 'Ещё',
-    //       ),
-    //       CustomDivider(
-    //         padding: EdgeInsets.all(8),
-    //       ),
-    //       _Content(),
-    //     ],
-    //   ),
-    // );
   }
 }
 

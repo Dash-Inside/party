@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:party/src/presentation/widgets/double_button.dart';
 
 class PanelHeader extends StatelessWidget {
   final IconData? icon;
@@ -28,10 +27,6 @@ class PanelHeader extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.w300, fontSize: 23, fontStyle: FontStyle.italic),
             ),
           ),
-        ),
-        const Padding(
-          padding: EdgeInsets.all(12),
-          child: DoubleButton(),
         ),
       ],
     );

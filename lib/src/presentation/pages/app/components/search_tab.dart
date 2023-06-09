@@ -9,30 +9,13 @@ class SearchTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox.expand(child: Placeholder()),
+    return Container(
+      padding: EdgeInsets.all(12.0),
+      constraints: BoxConstraints(),
+      child: Text(
+        'test',
+      ),
     );
-
-    // return Scaffold(
-    //   bottomNavigationBar: BottomNavBar(),
-    //   body: Column(
-    //     mainAxisSize: MainAxisSize.min,
-    //     children: [
-    //       PanelHeader(
-    //         title: 'Поиск',
-    //         icon: Icons.flag_outlined,
-    //       ),
-    //       CustomDivider(
-    //         padding: EdgeInsets.all(8),
-    //       ),
-    //       Spacer(),
-    //       _Content1(
-    //         userInformation: 'Информация о пользователе',
-    //       ),
-    //       Spacer(),
-    //     ],
-    //   ),
-    // );
   }
 }
 
@@ -49,16 +32,13 @@ class _Content1 extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Profile(
+            const Profile(
               padding: EdgeInsets.all(16),
               stuf: 'Москва',
               nickname: 'Алексей',
             ),
-            SizedBox(
-              child: Text(userInformation),
-            ),
-            Spacer(),
-            CustomButton(
+            Text(userInformation),
+            const CustomButton(
               title: 'Написать специальное сообщение',
             ),
           ],
