@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.0.2 <4.0.0'
 
 dependencies:
+  awesome_bottom_bar: ^1.2.2
   dartz: ^0.10.1
   equatable: ^2.0.5
   flutter:

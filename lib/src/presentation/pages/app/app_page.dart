@@ -1,9 +1,8 @@
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:party/src/presentation/core/vk/vk_app_bar.dart';
-import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
 import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/custom_divider.dart';
-import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 
 part './components/etc_tab.dart';
@@ -20,18 +19,13 @@ class AppPage extends StatefulWidget {
 }
 
 class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
-  late final PageController controller = PageController();
-  int page = 0;
+  final PageController controller = PageController();
 
-  @override
-  void setState(VoidCallback fn) {
-    controller.jumpToPage(page);
-    super.setState(fn);
-  }
-
-  void _onNavButtonTap(int value) {
+  void onPageChange(int page) {
     setState(() {
-      page = value;
+      controller.jumpToPage(
+        page,
+      );
     });
   }
 
@@ -49,26 +43,21 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
           EtcTab(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _onNavButtonTap,
-        items: const [
-          BottomNavigationBarItem(
-            label: '0',
-            icon: Icon(
-              Icons.search_rounded,
-            ),
+      bottomNavigationBar: BottomBarDefault(
+        indexSelected: 0,
+        color: Colors.black,
+        colorSelected: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        onTap: onPageChange,
+        items: const <TabItem<IconData>>[
+          TabItem(
+            icon: Icons.search_rounded,
           ),
-          BottomNavigationBarItem(
-            label: '1',
-            icon: Icon(
-              Icons.history_rounded,
-            ),
+          TabItem(
+            icon: Icons.history_rounded,
           ),
-          BottomNavigationBarItem(
-            label: '2',
-            icon: Icon(
-              Icons.menu_rounded,
-            ),
+          TabItem(
+            icon: Icons.menu_rounded,
           ),
         ],
       ),
