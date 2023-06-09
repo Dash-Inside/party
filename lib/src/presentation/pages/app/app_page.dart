@@ -37,6 +37,7 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
       ),
       body: PageView(
         controller: controller,
+        physics: NeverScrollableScrollPhysics(),
         children: [
           SearchTab(),
           TeammatesTab(),
