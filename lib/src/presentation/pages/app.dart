@@ -1,63 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:party/src/presentation/pages/app/app_page.dart';
 import 'package:party/src/presentation/pages/forbidden/forbidden_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
+  static const Color primaryColor = Color(0xFF2688EB);
+  static const boldTextStyle = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Roboto',
+  );
+  static const regularTextStyle = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Roboto',
+  );
+  static const lightTextStyle = TextStyle(
+    fontWeight: FontWeight.w300,
+    fontFamily: 'Roboto',
+  );
+  static const thinTextStyle = TextStyle(
+    fontWeight: FontWeight.w100,
+    fontFamily: 'Roboto',
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: AppPage.route,
+      onGenerateRoute: onGenerateRoute,
       title: 'Find Party',
       theme: ThemeData.from(
-        useMaterial3: true,
-        textTheme: TextTheme(
-          titleMedium: GoogleFonts.roboto(
-            textStyle: TextStyle(
-              letterSpacing: 0.05,
-              fontWeight: FontWeight.w600,
-              fontSize: 17.0,
-              height: 22.0,
-            ),
-          ),
-          bodyMedium: GoogleFonts.roboto(
-            textStyle: TextStyle(
-              letterSpacing: 0.05,
-              fontWeight: FontWeight.w500,
-              fontSize: 15.0,
-              height: 20.0,
-            ),
-          ),
-          labelMedium: GoogleFonts.roboto(
-            textStyle: TextStyle(
-              letterSpacing: 0.05,
-              fontWeight: FontWeight.w400,
-              fontSize: 13.0,
-              height: 16.0,
-            ),
-          ),
-        ),
         colorScheme: ColorScheme.light(
-          primary: Colors.blue,
+          primary: primaryColor,
         ),
+        textTheme: TextTheme(
+          headlineLarge: boldTextStyle,
+          titleLarge: regularTextStyle,
+          bodyLarge: lightTextStyle,
+          labelLarge: thinTextStyle,
+        ),
+        useMaterial3: true,
       ),
-      initialRoute: AppPage.route,
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute(
-          builder: (_) {
-            switch (settings.name) {
-              case AppPage.route:
-                return AppPage();
-
-              case ForbiddenPage.route:
-                return ForbiddenPage();
-            }
-
-            return ForbiddenPage();
-          },
-        );
-      },
     );
+  }
+
+  Route<void>? onGenerateRoute(settings) {
+    return MaterialPageRoute(builder: (_) {
+      switch (settings.name) {
+        case AppPage.route:
+          return AppPage();
+        case ForbiddenPage.route:
+          return ForbiddenPage();
+      }
+
+      return ForbiddenPage();
+    });
   }
 }
