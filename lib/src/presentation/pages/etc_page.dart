@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
+import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/vk_divider.dart';
@@ -41,75 +42,13 @@ class _Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        itemCount: userInformation.length,
-        itemBuilder: (context, index) {
-          return TeammateCard(userInformation: userInformation[index]);
-          // return TeammateListElement(
-          //   nickname: userInformation[index],
-          //   info: userInformation[index],
-          // );
-        },
-      ),
-    );
-  }
-}
-
-class TeammateCard extends StatelessWidget {
-  const TeammateCard({
-    super.key,
-    required this.userInformation,
-  });
-
-  final String userInformation;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Profile(
-              nickname: userInformation,
-              padding: EdgeInsets.all(16),
-              stuf: userInformation,
-            ),
-            SizedBox(
-              child: Text(userInformation),
-            ),
-            Spacer(),
-            CustomButton(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 270),
-      child: GestureDetector(
-        onTap: () {},
-        child: Container(
-          width: double.infinity,
-          margin: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Color(0xFF2D81E0),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 4,
-            ),
-            child: Center(
-              child: Text('Написать специальное сообщение'),
-            ),
+      child: GridView.custom(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        childrenDelegate: SliverChildBuilderDelegate(
+          (context, index) => TeammateListElement(
+            nickname: userInformation[index],
+            info: userInformation[index],
           ),
         ),
       ),
@@ -130,42 +69,95 @@ class TeammateListElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(8),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CircleAvatar(
-            radius: 36,
-            backgroundColor: Colors.amber,
-          ),
-          SizedBox(
-            width: 12,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                nickname,
-                style: GoogleFonts.roboto(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                  letterSpacing: 0.1,
-                ),
+      child: Card(
+        child: Column(
+          children: [
+            _elementHeader(),
+            SizedBox(
+              width: 12,
+            ),
+            Text(
+              nickname,
+              style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                letterSpacing: 0.1,
               ),
-              Text(
-                info,
-                style: GoogleFonts.roboto(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 13,
-                  letterSpacing: 0.2,
-                  color: Color(0xFF818C99),
-                ),
+            ),
+            Text(
+              info,
+              style: GoogleFonts.roboto(
+                fontWeight: FontWeight.w400,
+                fontSize: 13,
+                letterSpacing: 0.1,
               ),
-            ],
-          ),
-          Spacer(),
-          Icon(Icons.message),
-        ],
+            ),
+            Spacer(),
+            CustomButton(
+              title: 'Написать',
+            ),
+          ],
+        ),
       ),
     );
+  }
+}
+
+class _elementHeader extends StatelessWidget {
+  final bool star;
+
+  const _elementHeader({
+    super.key,
+    this.star = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(builder: (context) {
+      if (star)
+        return Row(
+          children: [
+            Expanded(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.star),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 36,
+                  backgroundColor: Colors.amber,
+                ),
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.delete),
+              ),
+            ),
+          ],
+        );
+      else
+        return Row(
+          children: [
+            Spacer(),
+            Expanded(
+              child: CircleAvatar(
+                radius: 36,
+                backgroundColor: Colors.amber,
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.delete),
+              ),
+            ),
+          ],
+        );
+    });
   }
 }

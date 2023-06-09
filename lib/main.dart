@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
       ),
       // home: ProfilePage(),
       home: EtcPage(
-        userInformation: [
+        userInformation: const [
           'Алексей',
           'Алексей',
           'Дмитрий',
