@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:party/src/presentation/pages/app/app_page.dart';
+import 'package:party/src/presentation/pages/app/bloc/app_bloc.dart';
 import 'package:party/src/presentation/pages/forbidden/forbidden_page.dart';
 
 class App extends StatelessWidget {
@@ -48,7 +50,10 @@ class App extends StatelessWidget {
     return MaterialPageRoute(builder: (_) {
       switch (settings.name) {
         case AppPage.route:
-          return AppPage();
+          return BlocProvider<AppBloc>(
+            create: (context) => AppBloc(),
+            child: AppPage(),
+          );
         case ForbiddenPage.route:
           return ForbiddenPage();
       }
