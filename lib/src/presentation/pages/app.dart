@@ -11,6 +11,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Find Party',
       theme: ThemeData.from(
+        useMaterial3: true,
         textTheme: TextTheme(
           titleMedium: GoogleFonts.roboto(
             textStyle: TextStyle(
