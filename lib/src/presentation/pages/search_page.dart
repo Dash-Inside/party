@@ -24,7 +24,9 @@ class SearchPage extends StatelessWidget {
             title: 'Поиск',
             icon: Icons.flag_outlined,
           ),
-          VkDivider(),
+          VkDivider(
+            padding: EdgeInsets.all(8),
+          ),
           Spacer(),
           _Content(
             userInformation: 'Информация о пользователе',

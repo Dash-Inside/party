@@ -1,32 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:party/src/presentation/widgets/bottom_nav_bar.dart';
-import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 import 'package:party/src/presentation/widgets/vk_divider.dart';
 
 class EtcPage extends StatelessWidget {
-  final List<String> userInformation;
-  const EtcPage({
-    super.key,
-    required this.userInformation,
-  });
+  const EtcPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavBar(),
       body: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
           PanelHeader(
-            title: 'Тиммейты',
+            title: 'Ещё',
           ),
-          VkDivider(),
-          _Content(
-            userInformation: userInformation,
+          VkDivider(
+            padding: EdgeInsets.all(8),
           ),
+          _Content(),
         ],
       ),
     );
@@ -34,130 +28,120 @@ class EtcPage extends StatelessWidget {
 }
 
 class _Content extends StatelessWidget {
-  final List<String> userInformation;
-  const _Content({
-    required this.userInformation,
-  });
+  const _Content();
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: GridView.custom(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        childrenDelegate: SliverChildBuilderDelegate(
-          (context, index) => TeammateListElement(
-            nickname: userInformation[index],
-            info: userInformation[index],
-          ),
+      child: ListView(children: [
+        Profile(
+          padding: EdgeInsets.all(16),
+          nickname: 'Алексей',
+          stuf: 'Питер',
         ),
-      ),
+        VkDivider(
+          padding: EdgeInsets.all(16),
+        ),
+        Settings(),
+        VkDivider(
+          padding: EdgeInsets.all(16),
+        ),
+        _SettingsButton(
+          icon: Icons.help_outline_outlined,
+          text: 'Помощь',
+        ),
+        _SettingsButton(
+          icon: Icons.info_outline,
+          text: 'О приложении',
+        ),
+      ]),
     );
   }
 }
 
-class TeammateListElement extends StatelessWidget {
-  final String nickname;
-  final String info;
-  const TeammateListElement({
-    super.key,
-    required this.nickname,
-    required this.info,
+class _SettingsButton extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  const _SettingsButton({
+    required this.icon,
+    required this.text,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8),
-      child: Card(
-        child: Column(
-          children: [
-            _elementHeader(),
-            SizedBox(
-              width: 12,
-            ),
-            Text(
-              nickname,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      child: Row(
+        children: [
+          Icon(
+            icon,
+            color: Color(0xFF2688EB),
+            size: 24,
+          ),
+          SizedBox(
+            width: 18,
+          ),
+          Expanded(
+            child: Text(
+              text,
+              overflow: TextOverflow.ellipsis,
               style: GoogleFonts.roboto(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
                 letterSpacing: 0.1,
               ),
             ),
-            Text(
-              info,
-              style: GoogleFonts.roboto(
-                fontWeight: FontWeight.w400,
-                fontSize: 13,
-                letterSpacing: 0.1,
-              ),
-            ),
-            Spacer(),
-            CustomButton(
-              title: 'Написать',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class _elementHeader extends StatelessWidget {
-  final bool star;
-
-  const _elementHeader({
+class Settings extends StatelessWidget {
+  const Settings({
     super.key,
-    this.star = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      if (star)
-        return Row(
-          children: [
-            Expanded(
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.star),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  radius: 36,
-                  backgroundColor: Colors.amber,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'Учавствовать в подборе',
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                    letterSpacing: 0.1,
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.delete),
+              Switch(
+                value: false,
+                onChanged: (_) => !_,
               ),
+            ],
+          ),
+          Text(
+            'Ваш аккаунт будет отображаться в системе подбора игроков',
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w400,
+              fontSize: 13,
+              letterSpacing: 0.2,
+              color: Color(0xFF818C99),
             ),
-          ],
-        );
-      else
-        return Row(
-          children: [
-            Spacer(),
-            Expanded(
-              child: CircleAvatar(
-                radius: 36,
-                backgroundColor: Colors.amber,
-              ),
-            ),
-            Expanded(
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.delete),
-              ),
-            ),
-          ],
-        );
-    });
+          ),
+        ],
+      ),
+    );
   }
 }
