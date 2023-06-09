@@ -1,10 +1,8 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:party/src/presentation/core/vk/vk_app_bar.dart';
-import 'package:party/src/presentation/widgets/custom_button.dart';
-import 'package:party/src/presentation/widgets/custom_divider.dart';
-import 'package:party/src/presentation/widgets/panel_header.dart';
-import 'package:party/src/presentation/widgets/profile.dart';
+import 'package:party/src/presentation/pages/app/widgets/custom_button.dart';
+import 'package:party/src/presentation/pages/app/widgets/profile_card.dart';
 
 part './components/etc_tab.dart';
 part './components/search_tab.dart';

@@ -32,7 +32,7 @@ class _Content1 extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Profile(
+            const ProfileCard(
               padding: EdgeInsets.all(16),
               stuf: 'Москва',
               nickname: 'Алексей',

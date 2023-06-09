@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
+class ProfileCard extends StatelessWidget {
   final EdgeInsets padding;
   final String nickname;
   final String stuf;
-  const Profile({
+  const ProfileCard({
     super.key,
     required this.padding,
     required this.nickname,

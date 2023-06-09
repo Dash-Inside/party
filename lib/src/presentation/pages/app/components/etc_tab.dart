@@ -10,12 +10,6 @@ class EtcTab extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          PanelHeader(
-            title: 'Ещё',
-          ),
-          CustomDivider(
-            padding: EdgeInsets.all(8),
-          ),
           _Content(),
         ],
       ),
@@ -30,18 +24,12 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(children: [
-        Profile(
+        ProfileCard(
           padding: EdgeInsets.all(16),
           nickname: 'Алексей',
           stuf: 'Питер',
         ),
-        CustomDivider(
-          padding: EdgeInsets.all(16),
-        ),
         Settings(),
-        CustomDivider(
-          padding: EdgeInsets.all(16),
-        ),
         _SettingsButton(
           icon: Icons.help_outline_outlined,
           text: 'Помощь',
