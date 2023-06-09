@@ -34,11 +34,11 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
           weight: 700
-        - asset: fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
           weight: 400
-        - asset: fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
           weight: 300
-        - asset: fonts/Roboto-Thin.ttf
+        - asset: assets/fonts/Roboto-Thin.ttf
           weight: 100
