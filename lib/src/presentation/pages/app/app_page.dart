@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:party/src/presentation/core/vk/vk_app_bar.dart';
 import 'package:party/src/presentation/widgets/custom_button.dart';
 import 'package:party/src/presentation/widgets/custom_divider.dart';
+import 'package:party/src/presentation/widgets/panel_header.dart';
 import 'package:party/src/presentation/widgets/profile.dart';
 
 part './components/etc_tab.dart';
@@ -19,7 +20,7 @@ class AppPage extends StatefulWidget {
 }
 
 class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
-  final PageController controller = PageController();
+  final PageController controller = PageController(initialPage: 0);
 
   void onPageChange(int page) {
     setState(() {

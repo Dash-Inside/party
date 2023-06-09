@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+part 'widgets/double_button.dart';
+part 'widgets/search_option.dart';
 
 class VkAppBar extends AppBar {
   VkAppBar(
     BuildContext context, {
     required String title,
-    List<Widget>? actions,
     super.key,
   }) : super(
           title: Text(
             title,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.black87),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
+          centerTitle: true,
           backgroundColor: Theme.of(context).colorScheme.background,
-          centerTitle: false,
-          actions: actions,
+          leading: SearchOprion(),
+          actions: [
+            Padding(
+              padding: EdgeInsets.all(4.0),
+              child: DoubleButton(),
+            ),
+          ],
         );
 }
