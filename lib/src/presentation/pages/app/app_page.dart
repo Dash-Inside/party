@@ -23,9 +23,7 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
 
   void onPageChange(int page) {
     setState(() {
-      controller.jumpToPage(
-        page,
-      );
+      controller.jumpToPage(page);
     });
   }
 
@@ -33,6 +31,7 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: VkAppBar(
+        context,
         title: 'Dynamic',
       ),
       body: PageView(
@@ -45,11 +44,10 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
         ],
       ),
       bottomNavigationBar: BottomBarDefault(
-        indexSelected: 0,
-        color: Colors.black,
-        colorSelected: Theme.of(context).colorScheme.primary,
-        backgroundColor: Theme.of(context).colorScheme.background,
         onTap: onPageChange,
+        color: Colors.black,
+        colorSelected: Colors.black,
+        backgroundColor: Theme.of(context).colorScheme.background,
         items: const <TabItem<IconData>>[
           TabItem(
             icon: Icons.search_rounded,
