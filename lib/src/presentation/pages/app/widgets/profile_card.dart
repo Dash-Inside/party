@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
-/// ! DEPRECATED.
 class ProfileCard extends StatelessWidget {
+  static const avatarRadius = 36.0;
+  static const avatarPadding = EdgeInsets.symmetric(
+    vertical: 12.0,
+  );
+
+  static const separatorWidth = 12.0;
+  static const separatorHeight = 3.0;
+
   final EdgeInsets padding;
   final String nickname;
   final String stuf;
+
   const ProfileCard({
     super.key,
     required this.padding,
@@ -14,37 +22,35 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Padding(
       padding: padding,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CircleAvatar(
-            radius: 36,
-            backgroundColor: Colors.amber,
+          Padding(
+            padding: avatarPadding,
+            child: CircleAvatar(
+              radius: avatarRadius,
+            ),
           ),
           SizedBox(
-            width: 12,
+            width: separatorWidth,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 nickname,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.1,
-                ),
+                style: textTheme.bodyLarge,
+              ),
+              SizedBox(
+                height: separatorHeight,
               ),
               Text(
                 stuf,
-                style: TextStyle(
-                  color: Color(0xFF818C99),
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.2,
-                ),
+                style: textTheme.labelLarge,
               ),
             ],
           ),
