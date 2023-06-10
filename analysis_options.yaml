@@ -12,6 +12,8 @@ analyzer:
     - test/**
 
 dart_code_metrics:
+  extends:
+    - package:dart_code_metrics_presets/all.yaml
   metrics:
     cyclomatic-complexity: 20
     number-of-parameters: 4
@@ -23,14 +25,20 @@ dart_code_metrics:
     - build/**
     - test/**
   rules:
+    - avoid-dynamic
+    - avoid-passing-async-when-sync-expected
+    - avoid-redundant-async
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unrelated-type-assertions
+    - avoid-unused-parameters
+    - avoid-nested-conditional-expressions
     - newline-before-return
     - no-boolean-literal-compare
     - no-empty-block
     - prefer-trailing-comma
     - prefer-conditional-expressions
     - no-equal-then-else
-  anti-patterns:
-    - long-method
-    - long-parameter-list
-  extends:
-    - package:dart_code_metrics_presets/all.yaml
+    - prefer-moving-to-variable
+    - prefer-match-file-name
+    - arguments-ordering: false
