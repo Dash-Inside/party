@@ -21,6 +21,9 @@ class AppPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
+    appBloc.add(AppEvent.load());
+
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -58,6 +61,7 @@ class AppPage extends StatelessWidget {
             },
           );
         },
+        bloc: appBloc,
       ),
       bottomNavigationBar: BottomBarDefault(
         items: const <TabItem<IconData>>[
