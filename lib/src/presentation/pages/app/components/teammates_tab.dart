@@ -11,8 +11,12 @@ class TeammatesTab extends StatelessWidget {
   Widget build(BuildContext context) {
     // ! DEPRECATED.
 
-    return Scaffold(
-      body: Placeholder(),
+    return Container(
+      padding: EdgeInsets.all(12.0),
+      constraints: BoxConstraints(),
+      child: Text(
+        'test2',
+      ),
     );
 
     // return Scaffold(
@@ -89,7 +93,8 @@ class TeammateListElement extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 8),
                         child: Text(nickname),
                       ),
-                      const Text('Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
+                      const Text(
+                          'Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
                       const Padding(
                         padding: EdgeInsets.symmetric(
                           vertical: 8,

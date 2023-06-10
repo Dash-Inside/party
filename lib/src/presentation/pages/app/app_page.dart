@@ -15,16 +15,23 @@ class AppPage extends StatelessWidget {
 
   static const route = '/';
 
-  void onPageChange(int index) {
-    //TODO: implement bloc
-  }
-
   @override
   Widget build(BuildContext context) {
     final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
     appBloc.add(AppEvent.load());
 
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    final PageController pageController = PageController();
+
+    int _indexSelected = 0;
+
+    void onPageChange(int index) {
+      //TODO: implement bloc
+      appBloc.add(PageChangeAppEvent(page: index));
+      _indexSelected = index;
+      debugPrint(_indexSelected.toString() + 'a');
+    }
 
     return Scaffold(
       appBar: VkAppBar(
@@ -43,6 +50,7 @@ class AppPage extends StatelessWidget {
             },
             page: (_) {
               return PageView(
+                controller: pageController,
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   SearchTab(),
@@ -69,6 +77,7 @@ class AppPage extends StatelessWidget {
           TabItem(icon: Icons.history_rounded),
           TabItem(icon: Icons.menu_rounded),
         ],
+        indexSelected: _indexSelected,
         backgroundColor: colorScheme.background,
         onTap: onPageChange,
         color: Colors.black,

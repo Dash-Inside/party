@@ -9,11 +9,11 @@ class EtcTab extends StatelessWidget {
   Widget build(BuildContext context) {
     // ! DEPRECATED.
 
-    return Scaffold(
-      body: Column(
-        children: [
-          _Content(),
-        ],
+    return Container(
+      padding: EdgeInsets.all(12.0),
+      constraints: BoxConstraints(),
+      child: Text(
+        'test3',
       ),
     );
   }

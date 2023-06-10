@@ -15,7 +15,7 @@ class SearchTab extends StatelessWidget {
       padding: EdgeInsets.all(12.0),
       constraints: BoxConstraints(),
       child: Text(
-        'test',
+        'test1',
       ),
     );
   }
