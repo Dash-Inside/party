@@ -9,6 +9,8 @@ class TeammatesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ! DEPRECATED.
+
     return Scaffold(
       body: Placeholder(),
     );

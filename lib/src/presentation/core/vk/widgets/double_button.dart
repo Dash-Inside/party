@@ -1,6 +1,24 @@
 part of '../vk_app_bar.dart';
 
 class DoubleButton extends StatelessWidget {
+  static const _doubleButtonWidth = 88.0;
+  static const _doubleButtonHeight = 32.0;
+
+  static const _dividerWidth = 1.0;
+  static const _dividerHeight = 24.0;
+
+  static const _moreHorizontalIconAsset = 'assets/icons/more_horizontal.svg';
+  static const _moreHorizontalIconWidth = 28.0;
+  static const _moreHorizontalIconHeight = 28.0;
+
+  static const _cancelIconAsset = 'assets/icons/cancel.svg';
+  static const _cancelIconWidth = 28.0;
+  static const _cancelIconHeight = 28.0;
+
+  static final _buttonPadding = EdgeInsets.symmetric(vertical: 6.0, horizontal: 4.0);
+  static final _buttonsBorderRadius = const BorderRadius.all(Radius.circular(10.0));
+  static final _dividerBorderRadius = const BorderRadius.all(Radius.circular(0.5));
+
   final Function()? onMoreTap;
   final Function()? onCancelTap;
 
@@ -10,39 +28,33 @@ class DoubleButton extends StatelessWidget {
     super.key,
   });
 
-  static const moreHorizontalIconAsset = 'assets/icons/more_horizontal.svg';
-  static const cancelIconAsset = 'assets/icons/cancel.svg';
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: 6.0,
-        horizontal: 4.0,
-      ),
+      padding: _buttonPadding,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: _buttonsBorderRadius,
         child: Container(
           color: Theme.of(context).highlightColor,
-          height: 32.0,
-          width: 88.0,
+          width: _doubleButtonWidth,
+          height: _doubleButtonHeight,
           child: Row(
             children: [
               Expanded(
                 child: InkWell(
                   onTap: onMoreTap,
                   child: SvgPicture.asset(
-                    moreHorizontalIconAsset,
-                    height: 28.0,
-                    width: 28.0,
+                    _moreHorizontalIconAsset,
+                    width: _moreHorizontalIconWidth,
+                    height: _moreHorizontalIconHeight,
                   ),
                 ),
               ),
               SizedBox(
-                height: 24.0,
-                width: 1.0,
+                width: _dividerWidth,
+                height: _dividerHeight,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(0.5),
+                  borderRadius: _dividerBorderRadius,
                   child: ColoredBox(
                     color: Theme.of(context).colorScheme.background,
                   ),
@@ -52,9 +64,9 @@ class DoubleButton extends StatelessWidget {
                 child: InkWell(
                   onTap: onCancelTap,
                   child: SvgPicture.asset(
-                    cancelIconAsset,
-                    height: 28.0,
-                    width: 28.0,
+                    _cancelIconAsset,
+                    width: _cancelIconWidth,
+                    height: _cancelIconHeight,
                   ),
                 ),
               ),
@@ -63,44 +75,5 @@ class DoubleButton extends StatelessWidget {
         ),
       ),
     );
-
-    // return SvgPicture.asset('assets/svg/vk_right_buttons.svg', semanticsLabel: 'Buttons');
-
-    // return Card(
-    //   borderOnForeground: false,
-    //   color: const Color(0xFF282B2E).withOpacity(0.2),
-    //   child: const Row(
-    //     mainAxisSize: MainAxisSize.min,
-    //     children: [
-    //       InkWell(
-    //         child: Padding(
-    //           padding: EdgeInsets.all(8.0),
-    //           child: Icon(
-    //             Icons.more_horiz_outlined,
-    //             color: Colors.white,
-    //             size: 24,
-    //           ),
-    //         ),
-    //       ),
-    //       SizedBox(
-    //         height: 24,
-    //         child: VerticalDivider(
-    //           // color: Colors.white.withOpacity(0.12),
-    //           width: 1,
-    //         ),
-    //       ),
-    //       InkWell(
-    //         child: Padding(
-    //           padding: EdgeInsets.all(8.0),
-    //           child: Icon(
-    //             Icons.close,
-    //             color: Colors.white,
-    //             size: 24,
-    //           ),
-    //         ),
-    //       )
-    //     ],
-    //   ),
-    // );
   }
 }

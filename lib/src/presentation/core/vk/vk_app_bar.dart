@@ -5,6 +5,8 @@ part 'widgets/double_button.dart';
 part 'widgets/search_option.dart';
 
 class VkAppBar extends AppBar {
+  static const _padding = EdgeInsets.all(4.0);
+
   VkAppBar(
     BuildContext context, {
     required String title,
@@ -16,10 +18,10 @@ class VkAppBar extends AppBar {
           ),
           centerTitle: true,
           backgroundColor: Theme.of(context).colorScheme.background,
-          leading: SearchOprion(),
+          leading: SearchOption(),
           actions: [
             Padding(
-              padding: EdgeInsets.all(4.0),
+              padding: _padding,
               child: DoubleButton(),
             ),
           ],

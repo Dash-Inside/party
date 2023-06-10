@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// ! DEPRECATED.
 class CustomButton extends StatelessWidget {
   final String title;
   const CustomButton({
@@ -14,16 +15,14 @@ class CustomButton extends StatelessWidget {
       child: GestureDetector(
         onTap: () {},
         child: Container(
-          width: double.infinity,
-          margin: EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Color(0xFF2D81E0),
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(8),
           ),
+          width: double.infinity,
+          margin: EdgeInsets.all(8),
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 4,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 4),
             child: Center(
               child: Text(title),
             ),

@@ -1,1 +1,0 @@
-class ServerError extends Error {}

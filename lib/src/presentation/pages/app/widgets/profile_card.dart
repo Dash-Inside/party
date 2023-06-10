@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// ! DEPRECATED.
 class ProfileCard extends StatelessWidget {
   final EdgeInsets padding;
   final String nickname;
@@ -31,18 +32,18 @@ class ProfileCard extends StatelessWidget {
               Text(
                 nickname,
                 style: TextStyle(
-                  fontWeight: FontWeight.w400,
                   fontSize: 16,
+                  fontWeight: FontWeight.w400,
                   letterSpacing: 0.1,
                 ),
               ),
               Text(
                 stuf,
                 style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 13,
-                  letterSpacing: 0.2,
                   color: Color(0xFF818C99),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 0.2,
                 ),
               ),
             ],

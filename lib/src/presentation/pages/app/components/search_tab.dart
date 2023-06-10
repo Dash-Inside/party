@@ -9,6 +9,8 @@ class SearchTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ! DEPRECATED.
+
     return Container(
       padding: EdgeInsets.all(12.0),
       constraints: BoxConstraints(),
