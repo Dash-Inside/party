@@ -84,9 +84,14 @@ class AppPage extends StatelessWidget {
             appBar: VkAppBar(
               context,
               title: pageAppState.appPage.map(
-                search: (_) => AppL10n.searchTabTitle.$, // 'Search'.
-                teammate: (_) => AppL10n.teammatesTabTitle.$, // 'Teammate'.
-                etc: (_) => AppL10n.etcTabTitle.$, // 'Etc'.
+                search: (_) => AppL10n.searchTabTitle.$,
+                teammate: (_) => AppL10n.teammatesTabTitle.$,
+                etc: (_) => AppL10n.etcTabTitle.$,
+              ),
+              showSettingLeading: pageAppState.appPage.map(
+                search: (_) => true,
+                teammate: (_) => false,
+                etc: (_) => false,
               ),
             ),
             body: PageView(

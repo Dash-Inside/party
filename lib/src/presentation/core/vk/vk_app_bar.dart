@@ -10,6 +10,7 @@ class VkAppBar extends AppBar {
   VkAppBar(
     BuildContext context, {
     required String title,
+    bool showSettingLeading = false,
     super.key,
   }) : super(
           title: Text(
@@ -18,7 +19,7 @@ class VkAppBar extends AppBar {
           ),
           centerTitle: true,
           backgroundColor: Theme.of(context).colorScheme.background,
-          leading: SearchOption(),
+          leading: showSettingLeading ? SearchOption() : SizedBox.shrink(),
           actions: [
             Padding(
               padding: _padding,
