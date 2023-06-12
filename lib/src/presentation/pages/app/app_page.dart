@@ -20,19 +20,16 @@ class AppPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PageController? pageController;
-
     final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
     appBloc.add(AppEvent.load());
 
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    PageController? pageController;
 
-    void _onStateChange(BuildContext _, AppState state) {
-      debugPrint(state.toString());
+    void _stateListener(BuildContext _, AppState state) {
       state.mapOrNull(
-        page: (page) {
+        page: (pageState) {
           pageController?.jumpToPage(
-            page.appPage.map(
+            pageState.appPage.map(
               search: (_) => _searchPage,
               teammate: (_) => _teammatePage,
               etc: (_) => _etcPage,
@@ -42,95 +39,93 @@ class AppPage extends StatelessWidget {
       );
     }
 
-    void _onPageChange(int index) {
-      final indexMap = <int, AppPageState>{
-        0: AppPageState.search(),
-        1: AppPageState.teammate(),
-        2: AppPageState.etc(),
-      };
+    Widget _stateBuilder(BuildContext context, AppState state) {
+      final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-      return appBloc.add(AppEvent.onPageChange(
-        state: indexMap[index] ?? AppPageState.search(),
-      ));
-    }
+      return state.map(
+        loading: (_) {
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(
+                color: colorScheme.primary,
+                strokeWidth: 1.0,
+              ),
+            ),
+          );
+        },
+        page: (pageAppState) {
+          pageController = PageController();
 
-    int _getSelectedIndex() {
-      final page = appBloc.state.mapOrNull<int>(page: (page) {
-        return page.appPage.map<int>(
-          search: (_) => _searchPage,
-          teammate: (_) => _teammatePage,
-          etc: (_) => _etcPage,
-        );
-      });
+          int getIndexSelected() {
+            return pageAppState.appPage.map<int>(
+              search: (_) => _searchPage,
+              teammate: (_) => _teammatePage,
+              etc: (_) => _etcPage,
+            );
+          }
 
-      return page ?? _searchPage;
-    }
+          void onNavIconTap(int index) {
+            final indexMap = <int, AppPageState>{
+              _searchPage: AppPageState.search(),
+              _teammatePage: AppPageState.teammate(),
+              _etcPage: AppPageState.etc(),
+            };
 
-    return BlocConsumer<AppBloc, AppState>(
-      listener: _onStateChange,
-      builder: (context, state) {
-        return Scaffold(
-          appBar: VkAppBar(
-            context,
-            title: state.map(
-              loading: (_) => 'Loading',
-              page: (value) => value.appPage.map(
+            final page = indexMap[index];
+            if (page != null) {
+              return appBloc.add(AppEvent.onPageChange(state: page));
+            }
+          }
+
+          return Scaffold(
+            appBar: VkAppBar(
+              context,
+              title: pageAppState.appPage.map(
                 search: (_) => 'Search',
                 teammate: (_) => 'Teammate',
                 etc: (_) => 'Etc',
               ),
-              failure: (_) => 'Failure',
             ),
-          ),
-          body: Builder(
-            builder: (context) {
-              return state.map(
-                loading: (_) {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      strokeWidth: 1.0,
-                    ),
-                  );
-                },
-                page: (_) {
-                  pageController = PageController();
+            body: PageView(
+              controller: pageController,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                SearchTab(),
+                TeammatesTab(),
+                EtcTab(),
+              ],
+            ),
+            bottomNavigationBar: BottomBarDefault(
+              onTap: onNavIconTap,
+              indexSelected: getIndexSelected(),
+              items: const <TabItem<IconData>>[
+                TabItem(icon: Icons.search_rounded),
+                TabItem(icon: Icons.history_rounded),
+                TabItem(icon: Icons.menu_rounded),
+              ],
+              color: Colors.black,
+              colorSelected: colorScheme.primary,
+              backgroundColor: colorScheme.background,
+            ),
+          );
+        },
+        failure: (failure) {
+          return Scaffold(
+            body: Center(
+              child: Text(
+                'Server Error',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+          );
+        },
+      );
+    }
 
-                  return PageView(
-                    controller: pageController,
-                    physics: NeverScrollableScrollPhysics(),
-                    children: [
-                      SearchTab(),
-                      TeammatesTab(),
-                      EtcTab(),
-                    ],
-                  );
-                },
-                failure: (failure) {
-                  return Center(
-                    child: Text(
-                      'Server Error',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  );
-                },
-              );
-            },
-          ),
-          bottomNavigationBar: BottomBarDefault(
-            indexSelected: _getSelectedIndex(),
-            items: const <TabItem<IconData>>[
-              TabItem(icon: Icons.search_rounded),
-              TabItem(icon: Icons.history_rounded),
-              TabItem(icon: Icons.menu_rounded),
-            ],
-            backgroundColor: colorScheme.background,
-            onTap: _onPageChange,
-            color: Colors.black,
-            colorSelected: colorScheme.primary,
-          ),
-        );
-      },
+    return BlocConsumer(
       bloc: appBloc,
+      builder: _stateBuilder,
+      listener: _stateListener,
     );
   }
 }
