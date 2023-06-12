@@ -25,6 +25,8 @@ class VkIconButton extends StatelessWidget {
         Expanded(
           child: Text(
             title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
