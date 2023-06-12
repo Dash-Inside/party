@@ -5,37 +5,41 @@ class TeammatesTab extends StatelessWidget {
     super.key,
   });
 
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Teammates Tab',
+    );
+  }
+}
+/* DEPRECATED CODE.
+
+class TeammatesTab extends StatelessWidget {
+  TeammatesTab({
+    super.key,
+  });
+
   final List<String> userInformation = ['1', '2', '3'];
 
   @override
   Widget build(BuildContext context) {
-    // ! DEPRECATED.
-
-    return Container(
-      padding: EdgeInsets.all(12.0),
-      constraints: BoxConstraints(),
-      child: Text(
-        'test2',
+    return Scaffold(
+      bottomNavigationBar: const BottomNavBar(),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const PanelHeader(
+            title: 'Тиммейты',
+          ),
+          const CustomDivider(
+            padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+          ),
+          _Content2(
+            userInformation: userInformation,
+          ),
+        ],
       ),
     );
-
-    // return Scaffold(
-    //   bottomNavigationBar: const BottomNavBar(),
-    //   body: Column(
-    //     mainAxisSize: MainAxisSize.min,
-    //     children: [
-    //       const PanelHeader(
-    //         title: 'Тиммейты',
-    //       ),
-    //       const CustomDivider(
-    //         padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-    //       ),
-    //       _Content2(
-    //         userInformation: userInformation,
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
 
@@ -93,8 +97,7 @@ class TeammateListElement extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 8),
                         child: Text(nickname),
                       ),
-                      const Text(
-                          'Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
+                      const Text('Дота валорант пубг еда \nменя зовут иван хочу играть в кс'),
                       const Padding(
                         padding: EdgeInsets.symmetric(
                           vertical: 8,
@@ -194,3 +197,5 @@ class _CustomButton extends StatelessWidget {
     );
   }
 }
+
+*/

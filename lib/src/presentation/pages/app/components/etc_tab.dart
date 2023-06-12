@@ -21,10 +21,8 @@ class EtcTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ! DEPRECATED.
     return Column(
       children: [
-        StandardDivider(),
         Expanded(
           child: ListView(children: [
             ProfileCard(
@@ -32,9 +30,7 @@ class EtcTab extends StatelessWidget {
               nickname: 'Алексей',
               stuf: 'Питер',
             ),
-            StandardDivider(),
             Settings(),
-            StandardDivider(),
             _SettingsButton(
               icon: settingButtonHelpIcon,
               text: settingButtonHelpText,

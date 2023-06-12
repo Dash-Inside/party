@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:party/src/presentation/core/vk/vk_app_bar.dart';
 import 'package:party/src/presentation/pages/app/bloc/app_bloc.dart';
-import 'package:party/src/presentation/pages/app/widgets/custom_button.dart';
 import 'package:party/src/presentation/pages/app/widgets/profile_card.dart';
 
 part './components/etc_tab.dart';
