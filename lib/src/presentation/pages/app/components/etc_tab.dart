@@ -1,19 +1,8 @@
 part of '../app_page.dart';
 
 class EtcTab extends StatelessWidget {
-  static const profileCardPadding = EdgeInsets.symmetric(horizontal: 16);
-
-  static const settingsMaxLines = 2;
-
-  static const settingButtonIconSize = 24.0;
-  static const settingButtonIconColor = Color(0xFF2688EB);
-  static const settingButtonIconSeparatorWidth = 18.0;
-
   static const settingButtonHelpIcon = Icons.help_outline_outlined;
-  static const settingButtonHelpText = 'Помощь';
-
   static const settingButtonInfoIcon = Icons.info_outline;
-  static const settingButtonInfoText = 'О приложении';
 
   const EtcTab({
     super.key,
@@ -24,7 +13,15 @@ class EtcTab extends StatelessWidget {
     return ListView(
       physics: NeverScrollableScrollPhysics(),
       children: [
-        VkCardSection(child: Placeholder()),
+        VkCardSection(
+          child: ProfileCard(
+            nickname: 'John Doe',
+            info: 'Pro CS:GO',
+          ),
+        ),
+        VkCardSection(
+          child: VkSwitchCard(),
+        ),
       ],
     );
 
@@ -58,6 +55,8 @@ class EtcTab extends StatelessWidget {
     */
   }
 }
+
+/* DEPRECATED.
 
 class _SettingsButton extends StatelessWidget {
   final IconData icon;
@@ -136,3 +135,5 @@ class Settings extends StatelessWidget {
     );
   }
 }
+
+*/
