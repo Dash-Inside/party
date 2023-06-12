@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:party/src/presentation/pages/app/widgets/custom_button.dart';
-import 'package:party/src/presentation/pages/app/widgets/profile_card.dart';
 
 class SearchProfileCard extends StatelessWidget {
   static const profileCardPadding = const EdgeInsets.all(16.0);
@@ -17,13 +15,13 @@ class SearchProfileCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: profileCardPadding,
-              child: const ProfileCard(),
-            ),
-          ),
+          // Align(
+          //   alignment: Alignment.centerLeft,
+          //   child: Padding(
+          //     padding: profileCardPadding,
+          //     child: const ProfileCard(),
+          //   ),
+          // ),
           Expanded(
             child: Align(
               alignment: Alignment.center,
@@ -33,12 +31,12 @@ class SearchProfileCard extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: customButtonPadding,
-            child: const CustomButton(
-              title: 'Text special message',
-            ),
-          ),
+          // Padding(
+          //   padding: customButtonPadding,
+          //   child: const CustomButton(
+          //     title: 'Text special message',
+          //   ),
+          // ),
         ],
       ),
     );

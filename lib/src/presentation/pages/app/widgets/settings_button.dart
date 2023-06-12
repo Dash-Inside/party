@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:party/src/presentation/pages/app/app_page.dart';
 
 class SettingsButton extends StatelessWidget {
   final IconData icon;
@@ -25,10 +24,6 @@ class SettingsButton extends StatelessWidget {
             Icon(
               icon,
               color: color,
-              size: EtcTab.settingButtonIconSize,
-            ),
-            SizedBox(
-              width: EtcTab.settingButtonIconSeparatorWidth,
             ),
             Expanded(
               child: Text(

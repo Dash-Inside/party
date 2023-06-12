@@ -9,8 +9,6 @@ import 'package:party/src/presentation/core/vk/vk_switch_card.dart';
 import 'package:party/src/presentation/pages/app/bloc/app_bloc.dart';
 import 'package:party/src/presentation/pages/app/widgets/profile_card.dart';
 import 'package:party/src/presentation/pages/app/widgets/search_profile_card.dart';
-import 'package:party/src/presentation/pages/app/widgets/settings.dart';
-import 'package:party/src/presentation/pages/app/widgets/settings_button.dart';
 import 'package:party/src/presentation/pages/app/widgets/teammate_list_element.dart';
 
 part './components/etc_tab.dart';

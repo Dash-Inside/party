@@ -23,6 +23,8 @@ class TeammateListElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Padding(
       padding: padding,
       child: Card(
@@ -39,14 +41,11 @@ class TeammateListElement extends StatelessWidget {
                 children: [
                   Text(
                     nickname,
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: textTheme.bodyLarge,
                   ),
                   Text(
                     'Dota valorant pubg food \nMy name is Ivan I want to play cs',
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelLarge!
-                        .copyWith(color: Colors.black),
+                    style: textTheme.labelLarge,
                   ),
                   SizedBox(
                     height: heightSeparator,
