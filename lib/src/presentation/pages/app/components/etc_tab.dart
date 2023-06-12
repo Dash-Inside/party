@@ -21,28 +21,41 @@ class EtcTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ListView(
+      physics: NeverScrollableScrollPhysics(),
+      children: [
+        VkCardSection(child: Placeholder()),
+      ],
+    );
+
+    /* DEPRECATED.
+
     return Column(
       children: [
         Expanded(
-          child: ListView(children: [
-            ProfileCard(
-              padding: profileCardPadding,
-              nickname: 'Алексей',
-              stuf: 'Питер',
-            ),
-            Settings(),
-            _SettingsButton(
-              icon: settingButtonHelpIcon,
-              text: settingButtonHelpText,
-            ),
-            _SettingsButton(
-              icon: Icons.info_outline,
-              text: settingButtonInfoText,
-            ),
-          ]),
+          child: ListView(
+            children: [
+              ProfileCard(
+                padding: profileCardPadding,
+                nickname: 'Алексей',
+                stuf: 'Питер',
+              ),
+              Settings(),
+              _SettingsButton(
+                icon: settingButtonHelpIcon,
+                text: settingButtonHelpText,
+              ),
+              _SettingsButton(
+                icon: Icons.info_outline,
+                text: settingButtonInfoText,
+              ),
+            ],
+          ),
         ),
       ],
     );
+
+    */
   }
 }
 
