@@ -1,6 +1,7 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:party/src/presentation/core/l10n/app_l10n.dart';
 import 'package:party/src/presentation/core/vk/vk_app_bar.dart';
 import 'package:party/src/presentation/pages/app/bloc/app_bloc.dart';
 import 'package:party/src/presentation/pages/app/widgets/profile_card.dart';
@@ -81,9 +82,9 @@ class AppPage extends StatelessWidget {
             appBar: VkAppBar(
               context,
               title: pageAppState.appPage.map(
-                search: (_) => 'Search',
-                teammate: (_) => 'Teammate',
-                etc: (_) => 'Etc',
+                search: (_) => AppL10n.searchTabTitle.$, // 'Search'.
+                teammate: (_) => AppL10n.teammatesTabTitle.$, // 'Teammate'.
+                etc: (_) => AppL10n.etcTabTitle.$, // 'Etc'.
               ),
             ),
             body: PageView(

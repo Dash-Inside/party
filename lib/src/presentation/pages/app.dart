@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:l10n_flutter/l10n_material_app.dart';
+import 'package:party/src/presentation/core/l10n/app_l10n.dart';
 import 'package:party/src/presentation/pages/app/app_page.dart';
 import 'package:party/src/presentation/pages/app/bloc/app_bloc.dart';
 import 'package:party/src/presentation/pages/forbidden/forbidden_page.dart';
@@ -27,10 +29,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return L10nMaterialApp(
+      locale: const Locale('ru', 'RU'),
+      supportedLocales: AppL10nSettings.supportedLocales,
       initialRoute: AppPage.route,
       onGenerateRoute: onGenerateRoute,
-      title: 'Find Party',
       theme: ThemeData.from(
         colorScheme: ColorScheme.light(
           primary: primaryColor,
