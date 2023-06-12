@@ -38,7 +38,7 @@ class _VkSwitchCardState extends State<VkSwitchCard> with SingleTickerProviderSt
           AppL10n.searchButtonDescription.$,
           maxLines: VkSwitchCard._descriptionMaxLines,
           overflow: TextOverflow.ellipsis,
-          style: textTheme.labelLarge,
+          style: textTheme.bodyMedium,
         ),
       ],
     );

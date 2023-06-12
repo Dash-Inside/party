@@ -40,7 +40,7 @@ class ProfileCard extends StatelessWidget {
             ),
             Text(
               info,
-              style: textTheme.labelLarge,
+              style: textTheme.bodyMedium,
             ),
           ],
         ),

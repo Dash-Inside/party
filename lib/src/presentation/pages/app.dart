@@ -11,20 +11,24 @@ class App extends StatelessWidget {
 
   static const Color primaryColor = Color(0xFF2688EB);
   static const boldTextStyle = TextStyle(
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Roboto',
+    fontWeight: FontWeight.w600,
+    fontFamily: 'SF-Pro',
+    fontSize: 20.0,
   );
   static const regularTextStyle = TextStyle(
     fontWeight: FontWeight.w400,
-    fontFamily: 'Roboto',
+    fontFamily: 'SF-Pro',
+    fontSize: 16.0,
   );
   static const lightTextStyle = TextStyle(
-    fontWeight: FontWeight.w300,
-    fontFamily: 'Roboto',
+    fontWeight: FontWeight.w400,
+    fontFamily: 'SF-Pro',
+    fontSize: 13.0,
   );
   static const thinTextStyle = TextStyle(
-    fontWeight: FontWeight.w100,
-    fontFamily: 'Roboto',
+    fontWeight: FontWeight.w500,
+    fontFamily: 'SF-Pro',
+    fontSize: 10.0,
   );
 
   @override
@@ -39,10 +43,10 @@ class App extends StatelessWidget {
           primary: primaryColor,
         ),
         textTheme: TextTheme(
-          headlineLarge: boldTextStyle,
-          titleLarge: regularTextStyle,
-          bodyLarge: lightTextStyle,
-          labelLarge: thinTextStyle,
+          titleLarge: boldTextStyle,
+          bodyLarge: regularTextStyle,
+          bodyMedium: lightTextStyle,
+          bodySmall: thinTextStyle,
         ),
         useMaterial3: true,
       ),

@@ -33,13 +33,6 @@ flutter:
     - assets/fonts/
     - assets/l10n/
   fonts:
-    - family: Roboto
+    - family: SF-Pro
       fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Roboto-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Roboto-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Roboto-Thin.ttf
-          weight: 100
+        - asset: assets/fonts/SF-Pro.ttf

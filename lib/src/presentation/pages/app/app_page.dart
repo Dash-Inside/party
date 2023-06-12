@@ -107,10 +107,19 @@ class AppPage extends StatelessWidget {
             bottomNavigationBar: BottomBarDefault(
               onTap: onNavIconTap,
               indexSelected: getIndexSelected(),
-              items: const <TabItem<IconData>>[
-                TabItem(icon: Icons.search_rounded),
-                TabItem(icon: Icons.history_rounded),
-                TabItem(icon: Icons.menu_rounded),
+              items: <TabItem<IconData>>[
+                TabItem(
+                  icon: Icons.search_rounded,
+                  title: AppL10n.searchTabTitle.$,
+                ),
+                TabItem(
+                  icon: Icons.history_rounded,
+                  title: AppL10n.teammatesTabTitle.$,
+                ),
+                TabItem(
+                  icon: Icons.menu_rounded,
+                  title: AppL10n.etcTabTitle.$,
+                ),
               ],
               color: Colors.black,
               colorSelected: colorScheme.primary,
