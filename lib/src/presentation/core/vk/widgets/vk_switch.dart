@@ -51,28 +51,6 @@ class _VkSwitchState extends State<VkSwitch> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    Widget circle() {
-      return TweenAnimationBuilder(
-        tween: Tween(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-        ),
-        duration: animationDuration,
-        builder: (_, alignment, __) {
-          return Container(
-            alignment: alignment,
-            width: switchCircleWidth,
-            height: switchCircleHeight,
-            margin: switchCirclePadding,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-          );
-        },
-      );
-    }
-
     return Container(
       width: width,
       height: height,
@@ -83,15 +61,30 @@ class _VkSwitchState extends State<VkSwitch> with SingleTickerProviderStateMixin
           builder: (context) {
             final theme = Theme.of(context);
 
-            return widget.state
-                ? ColoredBox(
-                    color: theme.colorScheme.primary,
-                    child: circle(),
-                  )
-                : ColoredBox(
-                    color: theme.highlightColor,
-                    child: circle(),
+            //TODO: rewrite animation.
+
+            return ColoredBox(
+              color: theme.colorScheme.primary,
+              child: TweenAnimationBuilder(
+                tween: Tween(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
+                duration: animationDuration,
+                builder: (_, alignment, __) {
+                  return Container(
+                    alignment: alignment,
+                    width: switchCircleWidth,
+                    height: switchCircleHeight,
+                    margin: switchCirclePadding,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
                   );
+                },
+              ),
+            );
           },
         ),
       ),

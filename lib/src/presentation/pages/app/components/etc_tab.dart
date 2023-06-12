@@ -10,6 +10,8 @@ class EtcTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconColor = Theme.of(context).colorScheme.primary;
+
     return ListView(
       physics: NeverScrollableScrollPhysics(),
       children: [
@@ -21,6 +23,27 @@ class EtcTab extends StatelessWidget {
         ),
         VkCardSection(
           child: VkSwitchCard(),
+        ),
+        VkCardSection(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              VkIconButton(
+                icon: Icon(
+                  settingButtonHelpIcon,
+                  color: iconColor,
+                ),
+                title: AppL10n.helpButton.$,
+              ),
+              VkIconButton(
+                icon: Icon(
+                  settingButtonHelpIcon,
+                  color: iconColor,
+                ),
+                title: AppL10n.aboutUsButton.$,
+              ),
+            ],
+          ),
         ),
       ],
     );
