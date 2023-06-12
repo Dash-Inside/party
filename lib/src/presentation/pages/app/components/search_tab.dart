@@ -1,16 +1,25 @@
 part of '../app_page.dart';
 
 class SearchTab extends StatelessWidget {
-  const SearchTab({
-    super.key,
-  });
+  static const constrainedBoxMinWidth = 135.0;
+  static const constrainedBoxMinHeight = 100.0;
+  static const constrainedBoxMaxWidth = 270.0;
+  static const constrainedBoxMaxHeight = 330.0;
 
-  final String userInformation = "";
+  const SearchTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'Search Tab',
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: constrainedBoxMinWidth,
+          minHeight: constrainedBoxMinHeight,
+          maxWidth: constrainedBoxMaxWidth,
+          maxHeight: constrainedBoxMaxHeight,
+        ),
+        child: SearchProfileCard(),
+      ),
     );
   }
 }

@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 class ProfileCard extends StatelessWidget {
   static const avatarRadius = 36.0;
-  static const avatarPadding = EdgeInsets.symmetric(vertical: 6.0);
+  static const avatarPadding = EdgeInsets.symmetric(
+    vertical: 16.0,
+  );
 
   static const separatorWidth = 12.0;
 
-  final String nickname;
-  final String info;
-
   const ProfileCard({
     super.key,
-    required this.nickname,
-    required this.info,
   });
 
   @override
@@ -22,11 +19,8 @@ class ProfileCard extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Padding(
-          padding: avatarPadding,
-          child: CircleAvatar(
-            radius: avatarRadius,
-          ),
+        CircleAvatar(
+          radius: avatarRadius,
         ),
         SizedBox(
           width: separatorWidth,
@@ -35,12 +29,15 @@ class ProfileCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              nickname,
+              'Alexei',
               style: textTheme.bodyLarge,
             ),
+            SizedBox(
+              height: separatorHeight,
+            ),
             Text(
-              info,
-              style: textTheme.bodyMedium,
+              'Peter',
+              style: textTheme.labelLarge,
             ),
           ],
         ),
