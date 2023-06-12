@@ -1,6 +1,20 @@
 part of '../app_page.dart';
 
 class EtcTab extends StatelessWidget {
+  static const profileCardPadding = EdgeInsets.symmetric(horizontal: 16);
+
+  static const settingsMaxLines = 2;
+
+  static const settingButtonIconSize = 24.0;
+  static const settingButtonIconColor = Color(0xFF2688EB);
+  static const settingButtonIconSeparatorWidth = 18.0;
+
+  static const settingButtonHelpIcon = Icons.help_outline_outlined;
+  static const settingButtonHelpText = 'Помощь';
+
+  static const settingButtonInfoIcon = Icons.info_outline;
+  static const settingButtonInfoText = 'О приложении';
+
   const EtcTab({
     super.key,
   });
@@ -8,39 +22,30 @@ class EtcTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ! DEPRECATED.
-
-    return Container(
-      padding: EdgeInsets.all(12.0),
-      constraints: BoxConstraints(),
-      child: Text(
-        'test3',
-      ),
-    );
-  }
-}
-
-class _Content extends StatelessWidget {
-  const _Content();
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(children: [
-        ProfileCard(
-          padding: EdgeInsets.all(16),
-          nickname: 'Алексей',
-          stuf: 'Питер',
+    return Column(
+      children: [
+        StandardDivider(),
+        Expanded(
+          child: ListView(children: [
+            ProfileCard(
+              padding: profileCardPadding,
+              nickname: 'Алексей',
+              stuf: 'Питер',
+            ),
+            StandardDivider(),
+            Settings(),
+            StandardDivider(),
+            _SettingsButton(
+              icon: settingButtonHelpIcon,
+              text: settingButtonHelpText,
+            ),
+            _SettingsButton(
+              icon: Icons.info_outline,
+              text: settingButtonInfoText,
+            ),
+          ]),
         ),
-        Settings(),
-        _SettingsButton(
-          icon: Icons.help_outline_outlined,
-          text: 'Помощь',
-        ),
-        _SettingsButton(
-          icon: Icons.info_outline,
-          text: 'О приложении',
-        ),
-      ]),
+      ],
     );
   }
 }
@@ -55,27 +60,25 @@ class _SettingsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       child: Row(
         children: [
           Icon(
             icon,
-            color: Color(0xFF2688EB),
-            size: 24,
+            color: EtcTab.settingButtonIconColor,
+            size: EtcTab.settingButtonIconSize,
           ),
           SizedBox(
-            width: 18,
+            width: EtcTab.settingButtonIconSeparatorWidth,
           ),
           Expanded(
             child: Text(
               text,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 16,
-                letterSpacing: 0.1,
-              ),
+              style: textTheme.bodyLarge,
             ),
           ),
         ],
@@ -91,6 +94,8 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -102,11 +107,7 @@ class Settings extends StatelessWidget {
                 child: Text(
                   'Учавствовать в подборе',
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    letterSpacing: 0.1,
-                  ),
+                  style: textTheme.bodyLarge,
                 ),
               ),
               Switch(
@@ -117,14 +118,9 @@ class Settings extends StatelessWidget {
           ),
           Text(
             'Ваш аккаунт будет отображаться в системе подбора игроков',
-            maxLines: 2,
+            maxLines: EtcTab.settingsMaxLines,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 13,
-              letterSpacing: 0.2,
-              color: Color(0xFF818C99),
-            ),
+            style: textTheme.labelLarge,
           ),
         ],
       ),
