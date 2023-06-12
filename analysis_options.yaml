@@ -42,3 +42,4 @@ dart_code_metrics:
     - prefer-moving-to-variable
     - prefer-match-file-name
     - arguments-ordering: false
+    - prefer-static-class: false
