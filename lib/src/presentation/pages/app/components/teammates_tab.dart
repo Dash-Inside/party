@@ -5,16 +5,13 @@ class TeammatesTab extends StatelessWidget {
     super.key,
   });
 
-  final List<String> userInformation = List.generate(50, (index) => index.toString());
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: userInformation.length,
       itemBuilder: (_, i) {
         return TeammateListElement(
-          nickname: userInformation[i],
-          info: userInformation[i],
+          nickname: '<Ninkname{$i}>',
+          description: '<Descripion{$i}>',
         );
       },
     );

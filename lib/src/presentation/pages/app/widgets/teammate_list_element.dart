@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:party/src/presentation/core/vk/vk_primary_button.dart';
+import 'package:party/src/presentation/core/vk/vk_secondary_button.dart';
 import 'package:party/src/presentation/pages/app/widgets/second_custom_button.dart';
 
 class TeammateListElement extends StatelessWidget {
-  static const padding = const EdgeInsets.all(8);
-
-  static const widthSeparator = 16.0;
-  static const heightSeparator = 4.0;
-  static const circleAvatarRadius = 36.0;
-
-  static const specialButtonBackColor = Color(0xfff5f5f5);
-  static const specialButtonTextColor = Color(0xdd2D81E0);
+  static const _padding = const EdgeInsets.symmetric(
+    horizontal: 12.0,
+    vertical: 6.0,
+  );
+  static const _wrapSpacing = 12.0;
+  static const _avatarRadius = 36.0;
 
   final String nickname;
-  final String info;
-  final bool special;
+  final String description;
+
   const TeammateListElement({
     super.key,
     required this.nickname,
-    required this.info,
-    this.special = true,
+    required this.description,
   });
 
   @override
@@ -26,50 +25,44 @@ class TeammateListElement extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Padding(
-      padding: padding,
-      child: Card(
-        child: Padding(
-          padding: padding,
-          child: Row(
+      padding: _padding,
+      child: Wrap(
+        spacing: _wrapSpacing,
+        children: [
+          CircleAvatar(
+            radius: _avatarRadius,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CircleAvatar(radius: circleAvatarRadius),
-              SizedBox(
-                width: widthSeparator,
+              Text(
+                nickname,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: textTheme.bodyLarge,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Text(
+                description,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: textTheme.labelLarge,
+              ),
+              Wrap(
+                spacing: 8.0,
                 children: [
-                  Text(
-                    nickname,
-                    style: textTheme.bodyLarge,
+                  VkPrimaryButton(
+                    data: 'data 1',
+                    onTap: () => null,
                   ),
-                  Text(
-                    'Dota valorant pubg food \nMy name is Ivan I want to play cs',
-                    style: textTheme.labelLarge,
-                  ),
-                  SizedBox(
-                    height: heightSeparator,
-                  ),
-                  Row(
-                    children: [
-                      SecondCustomButton(
-                        title: 'See special msg',
-                      ),
-                      SizedBox(
-                        width: widthSeparator,
-                      ),
-                      SecondCustomButton(
-                        title: 'Hide',
-                        backColor: specialButtonBackColor,
-                        textColor: specialButtonTextColor,
-                      ),
-                    ],
+                  VkSecondaryButton(
+                    data: 'data 2',
+                    onTap: () => null,
                   ),
                 ],
               ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
