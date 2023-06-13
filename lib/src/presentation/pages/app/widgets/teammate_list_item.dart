@@ -1,23 +1,27 @@
-import 'package:flutter/material.dart';
-import 'package:party/src/presentation/core/vk/vk_primary_button.dart';
-import 'package:party/src/presentation/core/vk/vk_secondary_button.dart';
-import 'package:party/src/presentation/pages/app/widgets/second_custom_button.dart';
+part of '../app_page.dart';
 
-class TeammateListElement extends StatelessWidget {
+class TeammateListItem extends StatelessWidget {
   static const _padding = const EdgeInsets.symmetric(
     horizontal: 12.0,
     vertical: 6.0,
   );
   static const _wrapSpacing = 12.0;
+  static const _buttonsSpacing = 8.0;
   static const _avatarRadius = 36.0;
+  static const _nicknameMaxLines = 1;
+  static const _descriptionMaxLinex = 2;
 
   final String nickname;
   final String description;
+  final Function()? onMessageTap;
+  final Function()? onHideTap;
 
-  const TeammateListElement({
-    super.key,
+  const TeammateListItem({
     required this.nickname,
     required this.description,
+    this.onMessageTap,
+    this.onHideTap,
+    super.key,
   });
 
   @override
@@ -37,26 +41,26 @@ class TeammateListElement extends StatelessWidget {
             children: [
               Text(
                 nickname,
-                maxLines: 1,
+                maxLines: _nicknameMaxLines,
                 overflow: TextOverflow.ellipsis,
                 style: textTheme.bodyLarge,
               ),
               Text(
                 description,
-                maxLines: 2,
+                maxLines: _descriptionMaxLinex,
                 overflow: TextOverflow.ellipsis,
                 style: textTheme.labelLarge,
               ),
               Wrap(
-                spacing: 8.0,
+                spacing: _buttonsSpacing,
                 children: [
                   VkPrimaryButton(
-                    data: 'data 1',
-                    onTap: () => null,
+                    data: 'Message',
+                    onTap: onMessageTap,
                   ),
                   VkSecondaryButton(
-                    data: 'data 2',
-                    onTap: () => null,
+                    data: 'Hide',
+                    onTap: onHideTap,
                   ),
                 ],
               ),

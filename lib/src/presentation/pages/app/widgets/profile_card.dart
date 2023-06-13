@@ -1,18 +1,18 @@
-import 'package:flutter/material.dart';
+part of '../app_page.dart';
 
 class ProfileCard extends StatelessWidget {
   static const avatarRadius = 36.0;
   static const avatarPadding = EdgeInsets.symmetric(vertical: 6.0);
 
-  static const separatorWidth = 12.0;
+  static const spacerWidth = 12.0;
 
   final String nickname;
-  final String info;
+  final String description;
 
   const ProfileCard({
     super.key,
     required this.nickname,
-    required this.info,
+    required this.description,
   });
 
   @override
@@ -24,13 +24,9 @@ class ProfileCard extends StatelessWidget {
       children: [
         Padding(
           padding: avatarPadding,
-          child: CircleAvatar(
-            radius: avatarRadius,
-          ),
+          child: CircleAvatar(radius: avatarRadius),
         ),
-        SizedBox(
-          width: separatorWidth,
-        ),
+        SizedBox(width: spacerWidth),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,7 +35,7 @@ class ProfileCard extends StatelessWidget {
               style: textTheme.bodyLarge,
             ),
             Text(
-              info,
+              description,
               style: textTheme.bodyMedium,
             ),
           ],

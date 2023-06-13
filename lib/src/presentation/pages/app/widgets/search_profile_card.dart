@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+part of '../app_page.dart';
 
 class SearchProfileCard extends StatelessWidget {
   static const profileCardPadding = const EdgeInsets.all(16.0);
-
   static const customButtonPadding = const EdgeInsets.all(8.0);
 
   const SearchProfileCard({super.key});

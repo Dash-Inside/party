@@ -5,15 +5,18 @@ import 'package:party/src/presentation/core/l10n/app_l10n.dart';
 import 'package:party/src/presentation/core/vk/vk_app_bar.dart';
 import 'package:party/src/presentation/core/vk/vk_card_section.dart';
 import 'package:party/src/presentation/core/vk/vk_icon_button.dart';
+import 'package:party/src/presentation/core/vk/vk_primary_button.dart';
+import 'package:party/src/presentation/core/vk/vk_secondary_button.dart';
 import 'package:party/src/presentation/core/vk/vk_switch_card.dart';
 import 'package:party/src/presentation/pages/app/bloc/app_bloc.dart';
-import 'package:party/src/presentation/pages/app/widgets/profile_card.dart';
-import 'package:party/src/presentation/pages/app/widgets/search_profile_card.dart';
-import 'package:party/src/presentation/pages/app/widgets/teammate_list_element.dart';
 
-part './components/etc_tab.dart';
-part './components/search_tab.dart';
-part './components/teammates_tab.dart';
+part 'components/etc_tab.dart';
+part 'components/search_tab.dart';
+part 'components/teammates_tab.dart';
+
+part 'widgets/profile_card.dart';
+part 'widgets/search_profile_card.dart';
+part 'widgets/teammate_list_item.dart';
 
 class AppPage extends StatelessWidget {
   static const route = '/';

@@ -9,9 +9,11 @@ class TeammatesTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (_, i) {
-        return TeammateListElement(
+        return TeammateListItem(
           nickname: '<Ninkname{$i}>',
           description: '<Descripion{$i}>',
+          onMessageTap: () => null,
+          onHideTap: () => null,
         );
       },
     );
