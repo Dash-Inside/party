@@ -1,10 +1,15 @@
 {
 	"about_us_button": "О нас",
 	"app_title": "Найди тиммейтов",
+	"description_text_field_hint": "Описание",
 	"etc_tab_title": "Настройки",
 	"help_button": "Поддержка",
+	"hide": "Скрыть",
+	"message": "Сообщение",
 	"search_button": "Учавствовать в подборе",
-	"search_button_description": "<SearchButtonDescription>",
+	"search_button_description": "Участие в системе подбора тиммейтов заданных вами игр",
 	"search_tab_title": "Поиск",
-	"teammates_tab_title": "Тиммейты"
+	"search_text_field_hint": "Введите название игры",
+	"teammates_tab_title": "Тиммейты",
+	"username_text_field_hint": "Никнейм"
 }

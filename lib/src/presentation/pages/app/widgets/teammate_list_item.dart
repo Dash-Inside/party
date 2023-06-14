@@ -55,11 +55,11 @@ class TeammateListItem extends StatelessWidget {
                 spacing: _buttonsSpacing,
                 children: [
                   VkPrimaryButton(
-                    data: 'Message',
+                    data: AppL10n.message.$,
                     onTap: onMessageTap,
                   ),
                   VkSecondaryButton(
-                    data: 'Hide',
+                    data: AppL10n.hide.$,
                     onTap: onHideTap,
                   ),
                 ],
