@@ -40,3 +40,4 @@ app.*.map.json
 
 # Platforms related
 ios
+windows
