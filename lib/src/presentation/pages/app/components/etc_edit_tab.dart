@@ -16,11 +16,7 @@ class EtcEditTab extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: [
         VkCardSection(
-          child: ProfileCard(
-            nickname: '<Nickname>',
-            description: '<Description>',
-            editFunc: true,
-          ),
+          child: ProfileEditCard(),
         ),
         VkCardSection(
           child: VkSwitchCard(),
