@@ -19,6 +19,7 @@ class EtcTab extends StatelessWidget {
           child: ProfileCard(
             nickname: '<Nickname>',
             description: '<Description>',
+            editFunc: true,
           ),
         ),
         VkCardSection(
