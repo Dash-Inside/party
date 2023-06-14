@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:l10n_flutter/examples/models/demo3.dart';
 import 'package:party/src/presentation/core/l10n/app_l10n.dart';
 import 'package:party/src/presentation/pages/app/widgets/custom_text_field.dart';
 
 class SearchSettingsTab extends StatelessWidget {
-  static const _cardBorderRadius = const BorderRadius.all(Radius.circular(20));
-  static const _cardContentPadding = EdgeInsets.all(8);
+  static const _padding = EdgeInsets.all(8);
   static const _textGamePadding = EdgeInsets.symmetric(horizontal: 12.0);
 
   const SearchSettingsTab({super.key});
@@ -15,7 +13,7 @@ class SearchSettingsTab extends StatelessWidget {
     final _textTheme = Theme.of(context).textTheme;
 
     return Container(
-      padding: _cardContentPadding,
+      padding: _padding,
       alignment: Alignment.bottomLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
