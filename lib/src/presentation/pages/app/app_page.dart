@@ -13,6 +13,7 @@ import 'package:party/src/presentation/pages/app/bloc/app_bloc.dart';
 part 'components/etc_tab.dart';
 part 'components/search_tab.dart';
 part 'components/teammates_tab.dart';
+part 'components/etc_edit_tab.dart';
 
 part 'widgets/profile_card.dart';
 part 'widgets/search_profile_card.dart';
