@@ -11,15 +11,7 @@ class SearchTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-          minWidth: constrainedBoxMinWidth,
-          minHeight: constrainedBoxMinHeight,
-          maxWidth: constrainedBoxMaxWidth,
-          maxHeight: constrainedBoxMaxHeight,
-        ),
-        child: SearchProfileCard(),
-      ),
+      child: SearchProfileCard(),
     );
   }
 }
