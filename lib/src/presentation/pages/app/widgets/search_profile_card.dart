@@ -3,7 +3,6 @@ part of '../app_page.dart';
 class SearchProfileCard extends StatelessWidget {
   static const _cardBorderRadius = const BorderRadius.all(Radius.circular(20));
   static const _cardContentPadding = EdgeInsets.all(8);
-  static const _wrapHorizontalSpacing = 8.0;
 
   const SearchProfileCard({super.key});
 
