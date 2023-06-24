@@ -1,55 +1,46 @@
-import 'package:flutter/material.dart';
+part of '../app_page.dart';
 
-/// ! DEPRECATED.
 class ProfileCard extends StatelessWidget {
-  final EdgeInsets padding;
+  static const avatarRadius = 36.0;
+  static const avatarPadding = EdgeInsets.symmetric(vertical: 6.0);
+
+  static const spacerWidth = 12.0;
+
   final String nickname;
-  final String stuf;
+  final String description;
+
   const ProfileCard({
     super.key,
-    required this.padding,
     required this.nickname,
-    required this.stuf,
+    required this.description,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: padding,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CircleAvatar(
-            radius: 36,
-            backgroundColor: Colors.amber,
-          ),
-          SizedBox(
-            width: 12,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                nickname,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.1,
-                ),
-              ),
-              Text(
-                stuf,
-                style: TextStyle(
-                  color: Color(0xFF818C99),
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.2,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+    final textTheme = Theme.of(context).textTheme;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: avatarPadding,
+          child: CircleAvatar(radius: avatarRadius),
+        ),
+        SizedBox(width: spacerWidth),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              nickname,
+              style: textTheme.bodyLarge,
+            ),
+            Text(
+              description,
+              style: textTheme.bodyMedium,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
